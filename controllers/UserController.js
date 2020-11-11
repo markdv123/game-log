@@ -1,48 +1,69 @@
 const { User, GamePost } = require('../db/schema')
+const jwt = require('jsonwebtoken')
+const {
+  checkPassword,
+  generatePassword
+} = require('../middleware/PasswordHandler')
 
 const GetProfile = async (req, res) => {
-  const user = await User.findById(req.params.user_id).select('_id name')
-  const posts = await GamePost.find({ user_id: req.params.user_id })
-  res.send({ user })
-  res.send({ user, posts })
-}
-
-const GetProfiles = async (req, res) => {
-    const { page, limit } = req.query
-  const offset = page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
-  const profiles = await User.find()
-    .limit(parseInt(limit))
-    .skip(offset)
-    .sort({ popularity_rating: 'desc' })
-  res.send({ results: profiles.length, profiles })
+  try {
+    const user = await User.findById(req.params.user_id).select('_id name')
+    const posts = await GamePost.find({ user_id: req.params.user_id })
+    res.send({ user, posts })
+  } catch (error) {
+    throw error
+  }
 }
 
 const CreateUser = async (req, res) => {
-  const body = req.body
-  const user = new User({
-    name: body.name,
-    email: body.email,
-    password_digest: body.password
-  })
-  user.save()
-  res.send(user)
+  try {
+    const body = req.body
+    const password_digest = await generatePassword(body.password)
+    const user = new User({
+      name: body.name,
+      email: body.email,
+      password_digest
+    })
+    user.save()
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
 }
 
 const SignInUser = async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email })
-  if (user && user.password_digest === req.body.password) {
-    const payload = {
-      _id: user._id,
-      name: user.name
+  try {
+    const user = await User.findOne({ email: req.body.email })
+
+    if (
+      user &&
+      (await checkPassword(req.body.password, user.password_digest))
+    ) {
+      const payload = {
+        _id: user._id,
+        name: user.name
+      }
+      res.locals.payload = payload
+      return next()
     }
-    return res.send(payload)
+    res.status(401).send({ msg: 'Unauthorized' })
+  } catch (error) {
+    throw error
   }
-  res.status(401).send({ msg: 'Unauthorized' })
+}
+
+const RefreshSession = (req, res) => {
+  try {
+    const token = res.locals.token
+    res.send({ user: jwt.decode(token), token: res.locals.token })
+  } catch (error) {
+    throw error
+  }
 }
 
 module.exports = {
   GetProfile,
-  GetProfiles,
   CreateUser,
-  SignInUser
+  SignInUser,
+  RefreshSession
 }
