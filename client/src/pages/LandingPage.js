@@ -1,6 +1,6 @@
 import React from 'react'
-// import TravelImg from '../assets/travel.png'
-// import TravelPath from '../assets/path.svg'
+import TravelImg from '../assets/travel.png'
+import TravelPath from '../assets/path.svg'
 import GetStarted from '../components/GetStarted'
 // import '../styles/Landing.css'
 import Nav from '../components/Nav'

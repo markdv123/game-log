@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Search from '../components/TextInput'
+import GameCard from '../components/GameCard'
+import Axios from 'axios'
 
 export default class Home extends Component {
     constructor() {
