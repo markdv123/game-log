@@ -6,6 +6,12 @@ module.exports = new Schema(
       type: String,
       required: true
     },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true
+    },
     email: {
       type: String,
       required: true,

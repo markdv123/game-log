@@ -7,7 +7,7 @@ const {
 
 const GetProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.params.user_id).select('_id name')
+    const user = await User.find({ username: req.params.username })
     const posts = await GamePost.find({ user_id: req.params.user_id })
     res.send({ user, posts })
   } catch (error) {
@@ -21,6 +21,7 @@ const CreateUser = async (req, res) => {
     const password_digest = await generatePassword(body.password)
     const user = new User({
       name: body.name,
+      username: body.username,
       email: body.email,
       password_digest
     })
