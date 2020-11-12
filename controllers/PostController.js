@@ -39,7 +39,7 @@ const GetPostById = async (req, res) => {
 
 const CreatePost = async (req, res) => {
   try {
-    const newPost = new GamePost({ ...req.body, user_id: req.params.user_id })
+    const newPost = new GamePost({ ...req.body, username: req.params.username })
     newPost.save()
     res.send(newPost)
   }catch(err){
@@ -61,9 +61,7 @@ const UpdatePost = async (req, res) => {
   try{
     await GamePost.findByIdAndUpdate(
       req.params.post_id,
-      {
-        ...req.body
-      },
+      { ...req.body },
       { new: true, useFindAndModify: false },
       (err, (d) => (err ? err : res.send(d)))
     )
