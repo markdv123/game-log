@@ -6,10 +6,13 @@ module.exports = new Schema(
       type: String,
       required: true
     },
-    popularity_rating: {
-      type: Number,
-      default: 0,
-      required: true
+    game_id: {
+      type: String,
+      required: true,
+    },
+    game_name: {
+      type: String,
+      required: true,
     },
     description: {
       type: String
