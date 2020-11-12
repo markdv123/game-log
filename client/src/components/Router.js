@@ -47,7 +47,6 @@ class Router extends Component {
   }
 
   componentDidMount() {
-    //invoke verifyTokenValid request
     this.verifyTokenValid()
     this.setState({ pageLoading: false })
   }
@@ -69,8 +68,6 @@ class Router extends Component {
         this.setState({ currentUser: null, authenticated: false })
         localStorage.clear()
       }
-      // Send Api request to verify token
-      // if token valid should set a user to state
     }
   }
 
