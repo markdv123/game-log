@@ -1,0 +1,35 @@
+header {
+  height: 3.5em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+header .icon {
+  flex: 1;
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  align-items: center;
+  height: 100%;
+}
+
+header nav a {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+header nav a:active,
+header nav a:hover {
+  color: #ff7043;
+}

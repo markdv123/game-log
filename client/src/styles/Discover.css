@@ -1,0 +1,51 @@
+.discover.wrapper {
+    margin: 1em auto;
+}
+
+.discover.wrapper h2 {
+    margin: .5em 1em;
+    padding: 1em;
+    color:#ff7043;
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+}
+
+.discover .content-wrapper {
+    width: 90%;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    align-content: center;
+    justify-content: center;
+}
+
+.content-wrapper  button {
+    padding: 1em 2em;
+    border: none;
+    width: auto;
+    margin:auto;
+}
+
+.discover .card .flex-col {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.discover .content-wrapper .card {
+    margin: 1em;
+    min-width: 380px;
+}
+
+.discover .card .card-content-top {
+    justify-content: space-between;
+}
+
+.card .card-content-top .stats {
+    margin: 1em;
+    text-align: center;
+}
+
+.stats p:last-of-type {
+    font-weight: 600;
+}

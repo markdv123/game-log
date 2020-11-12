@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Search from '../components/TextInput'
+import Search from '../components/Search'
 import GameCard from '../components/GameCard'
 import Axios from 'axios'
 

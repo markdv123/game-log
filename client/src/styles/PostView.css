@@ -1,0 +1,66 @@
+.posts .content-wrapper {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+.posts .right-content {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.posts .left-content,
+.posts .content-top {
+  padding: 0 1em;
+}
+.posts .left-content .image-wrapper {
+  margin: auto;
+  border-radius: 2em;
+}
+
+.posts .left-content img {
+  border-radius: inherit;
+}
+.posts .right-content {
+  height: calc(100vh - 3.5em);
+  flex: 2;
+}
+
+.posts .comments {
+  margin: auto;
+  overflow-y: scroll;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.posts .stats {
+  justify-content: space-around;
+}
+
+.stats p {
+  text-align: center;
+}
+
+.comments .comment-item {
+  width: 100%;
+  padding: 0.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.comment-item a {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.comment-item a:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.comment-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.comment-item:hover > a {
+  color: rgba(0, 0, 0, 0.9);
+}
