@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
-import '../styles/Signup.css'
+// import '../styles/Signup.css'
 export default class Signup extends Component {
   constructor() {
     super()
     this.state = {
+      username: '',
       name: '',
       email: '',
       password: ''
@@ -31,6 +32,13 @@ export default class Signup extends Component {
     return (
       <div className="signup flex-col">
         <form className="flex-col" onSubmit={this.handleSubmit}>
+          <TextInput
+            placeholder="Your Username"
+            name="username"
+            value={username}
+            type="text"
+            onChange={this.handleChange}
+          />
           <TextInput
             placeholder="Your Email"
             name="email"

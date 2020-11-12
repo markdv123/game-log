@@ -1,8 +1,8 @@
 import ApiClient from './ApiClient'
 
-export const __GetProfile = async (userId) => {
+export const __GetProfile = async (username) => {
   try {
-    const res = await ApiClient.get(`/users/${userId}`)
+    const res = await ApiClient.get(`/users/${username}`)
     return res.data
   } catch (error) {
     throw error
