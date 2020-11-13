@@ -33,10 +33,10 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="home content-wrapper flex-col">
-                <div className="content flex-col">
+            <div>
+                <div>
                     <form>
-                        <Search name="search" type="search" placeholder="Search for Games" />
+                        <Search name="search" type="search" placeholder="Search for Games" onClick={() => {this.getSearchResults()}}/>
                     </form>
                 </div>
                 {this.state.searched ? (

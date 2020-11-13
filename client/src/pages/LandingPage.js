@@ -10,11 +10,11 @@ export default ({ children, authenticated, currentUser }) => {
         <Nav 
         authenticated={authenticated}
         currentUser={currentUser}/>
-        <main className="container3">
-          <div>
+        <main className="row container3">
+          <div className="col s6 get-started">
             <GetStarted />
           </div>
-          <div>
+          <div className="col s6 lp-right">
             {children}
           </div>
         </main>
