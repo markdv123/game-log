@@ -12,6 +12,8 @@ import Profile from './pages/Profile'
 import ViewPost from './pages/ViewPost'
 import CreatePost from './pages/CreatePost'
 import UpdatePost from './pages/UpdatePost'
+import Admin from './pages/Admin'
+import ViewUser from './pages/ViewUser'
 
 class App extends Component {
   constructor() {
@@ -114,6 +116,28 @@ class App extends Component {
                   authenticated={this.state.authenticated}
                 >
                   <Discover {...props} />
+                </Layout>
+              )}
+            />
+            <Route
+              path="/admin"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <Admin {...props} />
+                </Layout>
+              )}
+            />
+            <Route
+              path="/users/:username"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <ViewUser {...props} />
                 </Layout>
               )}
             />
