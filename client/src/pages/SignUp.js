@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
-import '../styles/Signup.css'
+
 export default class Signup extends Component {
   constructor() {
     super()
