@@ -1,5 +1,4 @@
 import './styles/App.css';
-import './styles/materialize.css'
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'

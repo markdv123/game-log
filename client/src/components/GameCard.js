@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/materialize.css'
 
 const GameCard = (props) => (
   <div class="row">
