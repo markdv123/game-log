@@ -1,5 +1,17 @@
 import './styles/App.css';
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
+import LandingPage from './pages/LandingPage'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import SignIn from './pages/SignIn'
+import Discover from './pages/Discover'
+import Profile from './pages/Profile'
+import ViewPost from './pages/ViewPost'
+import CreatePost from './pages/CreatePost'
+import UpdatePost from './pages/UpdatePost'
 
 class App extends Component {
   constructor() {
@@ -58,12 +70,105 @@ class App extends Component {
       }
     }
   }
-  
-   render() {
-       return (
-           <div></div>
-       )
-   }
+
+  render() {
+    return (
+      <main>
+        {this.state.pageLoading ? (
+          <h3>Loading...</h3>
+        ) : (
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <LandingPage>
+                  <Home />
+                </LandingPage>
+              )}
+            />
+            <Route
+              path="/register"
+              component={(props) => (
+                <LandingPage>
+                  <Signup {...props} />
+                </LandingPage>
+              )}
+            />
+            <Route
+              path="/login"
+              component={(props) => (
+                <LandingPage>
+                  <SignIn
+                    toggleAuthenticated={this.toggleAuthenticated}
+                    {...props}
+                  />
+                </LandingPage>
+              )}
+            />
+            <Route
+              path="/discover"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <Discover {...props} />
+                </Layout>
+              )}
+            />
+            <Route
+              path="/posts/:post_id"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <ViewPost {...props} />
+                </Layout>
+              )}
+            />
+            <ProtectedRoute
+              authenticated={this.state.authenticated}
+              path="/profile"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <Profile {...props} currentUser={this.state.currentUser} />
+                </Layout>
+              )}
+            />
+            <ProtectedRoute
+              authenticated={this.state.authenticated}
+              path="/upload"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <CreatePost {...props} currentUser={this.state.currentUser} />
+                </Layout>
+              )}
+            />
+            <ProtectedRoute
+              authenticated={this.state.authenticated}
+              path="/edit/:post_id"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <UpdatePost {...props} currentUser={this.state.currentUser} />
+                </Layout>
+              )}
+            />
+          </Switch>
+        )}
+      </main>
+    )
+  }
 }
 
-export default App
+export default withRouter(App)
