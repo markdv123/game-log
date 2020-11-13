@@ -15,6 +15,7 @@ export default class Home extends Component {
 
     getSearchResults = async (e) => {
         e.preventDefault()
+        console.log('searched')
         try {
             const response = await Axios.get(`https://api.rawg.io/api/games?search=${this.state.searchQuery}`)
             this.setState({
@@ -32,6 +33,7 @@ export default class Home extends Component {
     }
 
     render() {
+        console.log(this.state.searchResults)
         return (
             <div>
                 <div>
