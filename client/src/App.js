@@ -1,8 +1,13 @@
 import './styles/App.css';
-import Router from './components/Router'
+import React, { Component } from 'react';
 
-function App() {
-  return <Router />
+class App extends Component {
+  
+   render() {
+       return (
+           <div></div>
+       )
+   }
 }
 
-export default App;
+export default App

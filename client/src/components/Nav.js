@@ -12,9 +12,6 @@ export default ({ authenticated, currentUser, className }) => {
         <NavLink activeClassName="nav-active" to="/discover">
           Discover
         </NavLink>
-        <NavLink activeClassName="nav-active" to="/upload">
-          Create Post
-        </NavLink>
         <NavLink
           activeClassName="nav-active"
           to="/"

@@ -1,15 +1,22 @@
 import React from 'react'
 
 const GameCard = (props) => (
-  <div className="card game-card" onclick={props.onClick}>
-    <div className="img-wrapper">
-      <img alt="game-image" src={props.image} />
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img alt="game-image" src={props.img} />
+          <span class="card-title">{props.name}</span>
+      </div>
+          <div class="card-content">
+            <p>some sort of description will go here</p>
+          </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn" onClick={props.onClick}>View Game Page</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div className="info-wrapper flex-col">
-      <h3>{props.name}</h3>
-      <p>{props.rating}</p>
-    </div>
-  </div>
 )
 
 export default GameCard
