@@ -1,11 +1,12 @@
 import React from 'react'
+import '../styles/materialize.css'
 
 const GameCard = (props) => (
   <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img alt="game-image" src={props.img} />
+          <img alt="game-image" src={props.image} />
           <span class="card-title">{props.name}</span>
       </div>
           <div class="card-content">

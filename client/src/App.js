@@ -1,19 +1,22 @@
 import './styles/App.css';
+import './styles/materialize.css'
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
-import ProtectedRoute from './ProtectedRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 import LandingPage from './pages/LandingPage'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import SignIn from './pages/SignIn'
 import Discover from './pages/Discover'
+import GamePage from './pages/GamePage'
 import Profile from './pages/Profile'
 import ViewPost from './pages/ViewPost'
 import CreatePost from './pages/CreatePost'
 import UpdatePost from './pages/UpdatePost'
 import Admin from './pages/Admin'
 import ViewUser from './pages/ViewUser'
+import {__CheckSession} from './services/UserServices'
 
 class App extends Component {
   constructor() {
@@ -116,6 +119,17 @@ class App extends Component {
                   authenticated={this.state.authenticated}
                 >
                   <Discover {...props} />
+                </Layout>
+              )}
+            />
+            <Route
+              path="/GamePage/:game_id"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <GamePage {...props} />
                 </Layout>
               )}
             />

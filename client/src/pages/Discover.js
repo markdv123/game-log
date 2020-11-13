@@ -22,8 +22,8 @@ export default class ViewGames extends Component {
 
   render() {
     return (
-      <div className="container-grid">
-        {this.state.games.map((game) => (<GameCard onClick={()=> this.props.history.push(`/games/details/${game.id}`)} key={game.id} image={game.background_image} name={game.name} rating={game.rating}/>))}
+      <div>
+        {this.state.games.map((game) => (<GameCard onClick={()=> this.props.history.push(`/GamePage/${game.id}`)} key={game.id} image={game.background_image} name={game.name} rating={game.rating}/>))}
         
       </div>
     )

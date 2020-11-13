@@ -12,6 +12,9 @@ export default ({ authenticated, currentUser, className }) => {
         <NavLink activeClassName="nav-active" to="/discover">
           Discover
         </NavLink>
+        <NavLink activeClassName="nav-active" to="/admin">
+          Admin
+        </NavLink>
         <NavLink
           activeClassName="nav-active"
           to="/"
@@ -27,6 +30,9 @@ export default ({ authenticated, currentUser, className }) => {
       <nav>
         <NavLink activeClassName="nav-active" to="/discover">
           Discover
+        </NavLink>
+        <NavLink activeClassName="nav-active" to="/admin">
+          Admin
         </NavLink>
         <NavLink activeClassName="nav-active" to="/register">
           Sign Up

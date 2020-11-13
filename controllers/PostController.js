@@ -49,6 +49,7 @@ const CreatePost = async (req, res) => {
 
 const DeletePost = async (req, res) => {
   try{
+    const post = await GamePost.findById(req.params.post_id)
     await Comment.deleteMany({ _id: { $in: post.comments } })
     await GamePost.findByIdAndDelete(req.params.post_id)
     res.send({ msg: 'Post deleted' })
@@ -59,12 +60,13 @@ const DeletePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
   try{
-    await GamePost.findByIdAndUpdate(
+    const updatedPost = await GamePost.findByIdAndUpdate(
       req.params.post_id,
       { ...req.body },
       { new: true, useFindAndModify: false },
       (err, (d) => (err ? err : res.send(d)))
     )
+    res.send(updatedPost)
   }catch(err){
     throw err
   }
