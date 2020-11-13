@@ -28,17 +28,17 @@ export default class Signup extends Component {
     }
   }
   render() {
-    const { name, password, email } = this.state
+    const { name, password, email, username } = this.state
     return (
       <div className="signup flex-col">
         <form className="flex-col" onSubmit={this.handleSubmit}>
-          {/* <TextInput
+          <TextInput
             placeholder="Your Username"
             name="username"
             value={username}
             type="text"
             onChange={this.handleChange}
-          /> */}
+          />
           <TextInput
             placeholder="Your Email"
             name="email"
