@@ -3,3 +3,8 @@
     min-height: 80vh;
     flex-direction: column;
 }
+
+.container3{
+    min-height: 80vh;
+    display: grid;
+}

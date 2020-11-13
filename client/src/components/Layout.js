@@ -7,7 +7,6 @@ export default ({ children, authenticated, currentUser }) => (
     <Nav
       authenticated={authenticated}
       currentUser={currentUser}
-      className="header-elevated"
     />
     <main className="container2">
     {children}

@@ -86,7 +86,10 @@ class App extends Component {
               exact
               path="/"
               component={() => (
-                <LandingPage>
+                <LandingPage
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
                   <Home />
                 </LandingPage>
               )}
@@ -94,7 +97,10 @@ class App extends Component {
             <Route
               path="/register"
               component={(props) => (
-                <LandingPage>
+                <LandingPage
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
                   <Signup {...props} />
                 </LandingPage>
               )}
