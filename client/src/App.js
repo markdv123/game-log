@@ -27,25 +27,6 @@ class App extends Component {
     }
   }
 
-  verifyTokenValid = async () => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      try {
-        const session = await __CheckSession()
-        this.setState(
-          {
-            currentUser: session,
-            authenticated: true
-          },
-          () => this.props.history.push('/profile')
-        )
-      } catch (error) {
-        this.setState({ currentUser: null, authenticated: false })
-        localStorage.clear()
-      }
-    }
-  }
-
   toggleAuthenticated = (value, user, done) => {
     this.setState({ authenticated: value, currentUser: user }, () => done())
   }
@@ -66,7 +47,7 @@ class App extends Component {
             currentUser: session.user,
             authenticated: true
           },
-          () => this.props.history.push('/profile')
+          () => this.props.history.push(window.location.pathname)
         )
       } catch (error) {
         this.setState({ currentUser: null, authenticated: false })
