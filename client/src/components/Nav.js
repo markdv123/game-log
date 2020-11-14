@@ -1,56 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// export default ({ authenticated, currentUser, className }) => {
-//   return authenticated && currentUser ? (
-//     <header className={className}>
-//       <div className="icon">Welcome Back {currentUser.name}</div>
-//       <nav>
-//         <NavLink activeClassName="nav-active" to="/profile">
-//           Profile
-//         </NavLink>
-//         <NavLink activeClassName="nav-active" to="/discover">
-//           Discover
-//         </NavLink>
-//         <NavLink activeClassName="nav-active" to="/admin">
-//           Admin
-//         </NavLink>
-//         <NavLink
-//           activeClassName="nav-active"
-//           to="/"
-//           onClick={() => localStorage.clear()}
-//         >
-//           Sign Out
-//         </NavLink>
-//       </nav>
-//     </header>
-//   ) : (
-//     <header className={className}>
-//       <div className="icon"></div>
-//       <nav>
-//         <NavLink activeClassName="nav-active" to="/discover">
-//           Discover
-//         </NavLink>
-//         <NavLink activeClassName="nav-active" to="/admin">
-//           Admin
-//         </NavLink>
-//         <NavLink activeClassName="nav-active" to="/register">
-//           Sign Up
-//         </NavLink>
-//         <NavLink activeClassName="nav-active" to="/login">
-//           Sign In
-//         </NavLink>
-//       </nav>
-//     </header>
-//   )
-// }
 export default ({ authenticated, currentUser, className }) => {
   return authenticated && currentUser ? (
     <nav>
-    <div class="nav-wrapper teal lighten-1">
-      <Link to="/" class="brand-logo"><i class="material-icons">videogame_asset</i>Logo </Link>
+    <div className="nav-wrapper teal lighten-1">
+      <Link to="/" className="brand-logo"><i className="material-icons">videogame_asset</i>Logo </Link>
       {/* <p>Welcome Back {currentUser.name}</p> */}
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/discover">Discover</Link></li>
         <li><Link to="/admin">Admin</Link></li>
@@ -60,9 +17,9 @@ export default ({ authenticated, currentUser, className }) => {
   </nav>
   ) : (
     <nav>
-    <div class="nav-wrapper teal lighten-1">
-      <Link to="/" class="brand-logo">Logo</Link>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <div className="nav-wrapper teal lighten-1">
+      <Link to="/" className="brand-logo"><i className="material-icons">videogame_asset</i>Logo</Link>
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/discover">Discover</Link></li>
         <li><Link to="/admin">Admin</Link></li>
         <li><Link to="/register">SignUp</Link></li>

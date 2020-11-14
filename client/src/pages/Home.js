@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import Search from '../components/Search'
 import GameCard from '../components/GameCard'
 import Axios from 'axios'
 
-export default class Home extends Component {
+class Home extends Component {
     constructor() {
         super()
         this.state = {
@@ -15,7 +16,6 @@ export default class Home extends Component {
 
     getSearchResults = async (e) => {
         e.preventDefault()
-        console.log('searched')
         try {
             const response = await Axios.get(`https://api.rawg.io/api/games?search=${this.state.searchQuery}`)
             this.setState({
@@ -23,13 +23,14 @@ export default class Home extends Component {
                 searched: true,
                 searchQuery: ''
             })
+            console.log(response.data.results)
         } catch (error) {
             console.log(error)
         }
     }
 
-    handleChange = (event) => {
-        this.setState({ searchQuery: event.target.value })
+    handleChange = (e) => {
+        this.setState({ searchQuery: e.target.value })
     }
 
     render() {
@@ -37,9 +38,11 @@ export default class Home extends Component {
         return (
             <div>
                 <div>
-                    <form>
-                        <Search name="search" type="search" placeholder="Search for Games" onClick={() => {this.getSearchResults()}}/>
-                    </form>
+                    <Search 
+                        onChange={this.handleChange}
+                        value={this.state.searchQuery}
+                        onSubmit={this.getSearchResults}
+                    />
                 </div>
                 {this.state.searched ? (
                     <div className="search">
@@ -48,7 +51,7 @@ export default class Home extends Component {
                             {this.state.searchResults.map((result) => (
                                 <GameCard
                                     onClick={() =>
-                                        this.props.history.push(`/games/details/${result.id}`)
+                                        this.props.history.push(`/GamePage/${result.id}`)
                                     }
                                     key={result.id}
                                     name={result.name}
@@ -63,3 +66,5 @@ export default class Home extends Component {
         )
     }
 }
+
+export default withRouter(Home)

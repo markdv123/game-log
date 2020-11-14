@@ -1,18 +1,18 @@
 import React from 'react'
 
 const GameCard = (props) => (
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
+  <div className="row">
+    <div className="col s12 m7">
+      <div className="card">
+        <div className="card-image">
           <img alt="game-image" src={props.image} />
-          <span class="card-title">{props.name}</span>
+          <span className="card-title">{props.name}</span>
       </div>
-          <div class="card-content">
+          <div className="card-content">
             <p>some sort of description will go here</p>
           </div>
-          <div class="card-action">
-            <a class="waves-effect waves-light btn" onClick={props.onClick}>View Game Page</a>
+          <div className="card-action">
+            <a className="waves-effect waves-light btn" onClick={props.onClick}>View Game Page</a>
           </div>
         </div>
       </div>
