@@ -17,6 +17,9 @@ module.exports = new Schema(
     description: {
       type: String
     },
+    rating: {
+      type: Number
+    },
     image_url: {
       type: String,
     },

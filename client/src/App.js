@@ -166,7 +166,7 @@ class App extends Component {
             />
             <ProtectedRoute
               authenticated={this.state.authenticated}
-              path="/upload"
+              path="/upload/:game_id"
               component={(props) => (
                 <Layout
                   currentUser={this.state.currentUser}

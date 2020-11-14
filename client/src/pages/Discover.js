@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import GameCard from '../components/GameCard'
 
 
-export default class ViewGames extends Component {
+export default class Discover extends Component {
   constructor(props) {
     super(props)
     this.state = {

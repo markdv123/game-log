@@ -8,6 +8,7 @@
 
 import Axios from 'axios'
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
 class GamePage extends Component {
     constructor(props){
@@ -30,9 +31,17 @@ class GamePage extends Component {
     render() {
         const {gameDetails} = this.state
         return (
-            <div>{gameDetails.name}</div>
+            <div>
+                <h1>{gameDetails.name}</h1>
+                <a 
+                    class="waves-effect waves-light btn" 
+                    onClick={() => {
+                        this.props.history.push(`/upload/${gameDetails.id}`)
+                    }}><i class="material-icons left">add</i>Create Post</a>
+            </div>
+
         )
     }
 }
 
-export default GamePage
+export default withRouter(GamePage)
