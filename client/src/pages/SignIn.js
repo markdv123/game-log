@@ -31,7 +31,7 @@ export default class SignIn extends Component {
     const { email, password } = this.state
     return (
       <div className="signin flex-col">
-        <form className='flex-col' onSubmit={this.handleSubmit}>
+        <form className='flex-col'>
           <TextInput
             placeholder='Your Email'
             name='email'
@@ -45,7 +45,7 @@ export default class SignIn extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button>Sign In</button>
+          <a class="waves-effect waves-light btn" onClick={this.handleSubmit}><i class="material-icons left">person</i>Sign In</a>
           {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
         </form>
       </div>

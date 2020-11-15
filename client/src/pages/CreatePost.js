@@ -66,15 +66,16 @@ class CreatePost extends Component {
                             onChange={this.handleChange}
                         />
                     </div>
-                    <div className="row">
+                    <div className="row input-field">
                         <TextInput
+                            fieldType="textfield"
                             placeholder="Post Content"
                             name="description"
                             value={description}
                             onChange={this.handleChange}
                         />
                     </div>
-                    <a class="waves-effect waves-light btn" onClick={() => {this.handleSubmit()}}><i class="material-icons right">cloud</i>Submit Post</a>
+                    <a class="waves-effect waves-light btn" onClick={() => {this.handleSubmit()}}><i class="material-icons left">add</i>Submit Post</a>
                 </form>
             </div>
         )

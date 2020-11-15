@@ -6,10 +6,10 @@ const GameCard = (props) => (
       <div className="card">
         <div className="card-image">
           <img alt="game-image" src={props.image} />
-          <span className="card-title">{props.name}</span>
+          {/* <span className="card-title">{props.name}</span> */}
       </div>
           <div className="card-content">
-            <p>some sort of description will go here</p>
+            <h5>{props.name}</h5>
           </div>
           <div className="card-action">
             <a className="waves-effect waves-light btn" onClick={props.onClick}>View Game Page</a>

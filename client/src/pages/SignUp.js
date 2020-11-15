@@ -31,7 +31,7 @@ export default class Signup extends Component {
     const { name, password, email, username } = this.state
     return (
       <div className="signup flex-col">
-        <form className="flex-col" onSubmit={this.handleSubmit}>
+        <form className="flex-col">
           <TextInput
             placeholder="Your Username"
             name="username"
@@ -60,7 +60,7 @@ export default class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button>Sign Up</button>
+          <a class="waves-effect waves-light btn" onClick={this.handleSubmit}><i class="material-icons left">person_add</i>Sign Up</a>
         </form>
       </div>
     )
