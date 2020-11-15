@@ -60,7 +60,7 @@ export default class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <a class="waves-effect waves-light btn" onClick={this.handleSubmit}><i class="material-icons left">person_add</i>Sign Up</a>
+          <a className="waves-effect waves-light btn" onClick={this.handleSubmit}><i className="material-icons left">person_add</i>Sign Up</a>
         </form>
       </div>
     )

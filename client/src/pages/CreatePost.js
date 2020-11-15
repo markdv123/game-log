@@ -14,12 +14,14 @@ class CreatePost extends Component {
             rating: null,
             image_url: '',
             developer: '',
+            username: '',
             user_id: ''
         }
     }
 
     componentDidMount() {
         this.getGameDetails()
+        console.log(this.props.currentUser.username)
     }
 
     getGameDetails = async () => {
@@ -28,6 +30,7 @@ class CreatePost extends Component {
             game_name: res.data.name,
             image_url: res.data.background_image,
             developer: res.data.developers[0].name,
+            username: this.props.currentUser.username,
             user_id: this.props.currentUser._id
         })
         console.log(res)

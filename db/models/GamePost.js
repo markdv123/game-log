@@ -26,6 +26,9 @@ module.exports = new Schema(
     developer: {
       type: String
     },
+    username: {
+      type: String
+    },
     user_id: {
       type: Schema.Types.ObjectId,
       ref: 'users'

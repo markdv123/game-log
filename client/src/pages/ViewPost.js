@@ -25,7 +25,7 @@ export default class ViewPost extends Component {
 
   render() {
     const { post } = this.state
-    if (this.state.post) {
+    if (post) {
       return (
         <div className="posts">
           

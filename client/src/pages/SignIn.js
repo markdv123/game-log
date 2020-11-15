@@ -45,7 +45,7 @@ export default class SignIn extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <a class="waves-effect waves-light btn" onClick={this.handleSubmit}><i class="material-icons left">person</i>Sign In</a>
+          <a className="waves-effect waves-light btn" onClick={this.handleSubmit}><i className="material-icons left">person</i>Sign In</a>
           {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
         </form>
       </div>

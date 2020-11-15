@@ -42,7 +42,8 @@ const SignInUser = async (req, res, next) => {
     ) {
       const payload = {
         _id: user._id,
-        name: user.name
+        name: user.name,
+        username: user.username
       }
       res.locals.payload = payload
       return next()

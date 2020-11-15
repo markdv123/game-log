@@ -1,20 +1,24 @@
 import React from 'react'
 
-export default ({ children, ...rest }) => {
+const Post = (props) => {
   return (
     <div className="row">
     <div className="col s12 m6">
       <div className="card">
         <div className="card-image">
-          <img src="images/sample-1.jpg" />
-          <span className="card-title">Card Title</span>
-          <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+          <img atl="game-image" src={props.image} />
         </div>
         <div className="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          <h5>{props.title}</h5>
+          <p>Post by {props.username}</p>
+        </div>
+        <div className="card-action">
+          <a href="#">View Full Post</a>
         </div>
       </div>
     </div>
   </div>
   )
 }
+
+export default Post
