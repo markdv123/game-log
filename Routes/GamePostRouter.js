@@ -2,6 +2,7 @@ const Router = require('express').Router()
 const PostController = require('../controllers/PostController')
 
 Router.get('/', PostController.GetPosts)
+Router.get('/by/:user_id', PostController.GetPostsByUserId)
 Router.get('/:post_id', PostController.GetPostById)
 Router.post('/:username', PostController.CreatePost)
 Router.put('/:post_id', PostController.UpdatePost)

@@ -20,6 +20,17 @@ export const __GetPosts = async (page, limit) => {
   }
 }
 
+export const __GetPostsByUsername = async (page, limit) => {
+  try {
+    const res = await ApiClient.get(
+      `/posts/by/:user_id?page=${page || 1}&limit=${limit || 10}`
+    )
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const __GetPost = async (postId) => {
   try {
     const res = await ApiClient.get(`/posts/${postId}`)
