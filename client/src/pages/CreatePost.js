@@ -23,21 +23,22 @@ class CreatePost extends Component {
     }
 
     getGameDetails = async () => {
-        const res = await Axios.get(`https://api.rawg.io/api/games/${this.state.gameId}`)
+        const res = await Axios.get(`https://api.rawg.io/api/games/${this.state.game_id}`)
         this.setState({
             game_name: res.data.name,
-            image_url: res.data.image,
-            developer: res.data.developer
+            image_url: res.data.background_image,
+            developer: res.data.developers[0].name,
+            user_id: this.props.currentUser._id
         })
+        console.log(res)
     }
 
     handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value })
     }
 
-    handleSubmit = async (e) => {
+    handleSubmit = async () => {
         try {
-            e.preventDefault()
             await __UploadPost(this.state, this.props.currentUser.username)
             this.props.history.push('/profile')
         } catch (error) {
