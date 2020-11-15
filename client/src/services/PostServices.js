@@ -20,10 +20,21 @@ export const __GetPosts = async (page, limit) => {
   }
 }
 
-export const __GetPostsByUsername = async (page, limit) => {
+export const __GetPostsByUsername = async (user_id, page, limit) => {
   try {
     const res = await ApiClient.get(
-      `/posts/by/:user_id?page=${page || 1}&limit=${limit || 10}`
+      `/posts/by/${user_id}?page=${page || 1}&limit=${limit || 10}`
+    )
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const __GetPostsByGame = async (game_id, page, limit) => {
+  try {
+    const res = await ApiClient.get(
+      `/posts/about/${game_id}?page=${page || 1}&limit=${limit || 10}`
     )
     return res.data
   } catch (error) {
