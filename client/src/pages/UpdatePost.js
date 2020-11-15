@@ -44,10 +44,10 @@ export default class UpdatePost extends Component {
     this.setState({ [target.name]: target.value })
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
+  handleSubmit = async () => {
     try {
       await __UpdatePost(this.state, this.props.match.params.post_id)
+      console.log('updated')
       this.props.history.push(`/posts/${this.props.match.params.post_id}`)
     } catch (error) {
       console.log(error)

@@ -13,7 +13,7 @@ const Post = (props) => {
           <p>Post by {props.username}</p>
         </div>
         <div className="card-action">
-          <a href="#">View Full Post</a>
+          <a onClick={props.onClick}>View Full Post</a>
         </div>
       </div>
     </div>

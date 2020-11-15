@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { __GetPost } from '../services/PostServices'
 
 export default class ViewPost extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      post: null
+      post: {}
     }
   }
 
@@ -16,8 +15,9 @@ export default class ViewPost extends Component {
 
   getPost = async () => {
     try {
-      const post = await __GetPost(this.props.match.params.post_id)
-      this.setState({ post })
+      const thePost = await __GetPost(this.props.match.params.post_id)
+      console.log(thePost.title)
+      this.setState({ post: thePost })
     } catch (error) {
       console.log(error)
     }
@@ -25,13 +25,11 @@ export default class ViewPost extends Component {
 
   render() {
     const { post } = this.state
-    if (post) {
-      return (
-        <div className="posts">
-          
-        </div>
-      )
-    }
-    return <h3>Loading...</h3>
+    return (
+      <div>
+        <h3>{post.title}</h3>
+        <a class="waves-effect waves-light btn" onClick={() => {this.props.history.push(`/edit/${this.props.match.params.post_id}`)}}><i class="material-icons left">edit</i>Edit Post</a>
+      </div>
+    )
   }
 }

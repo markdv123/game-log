@@ -35,9 +35,9 @@ class Profile extends Component {
                     {this.state.posts.map((post) => (
                         <Post
                             onClick={() =>
-                                this.props.history.push(`/posts/${post.id}`)
+                                this.props.history.push(`/posts/${post._id}`)
                             }
-                            key={post.id}
+                            key={post._id}
                             title={post.title}
                             rating={post.rating}
                             image={post.image_url}

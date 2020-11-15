@@ -86,7 +86,7 @@ const DeletePost = async (req, res) => {
   }
 }
 
-const UpdatePost = async (req, res) => {
+const UpdatePost = async (req, res, err) => {
   try{
     const updatedPost = await GamePost.findByIdAndUpdate(
       req.params.post_id,
