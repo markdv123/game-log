@@ -20,9 +20,7 @@ class Profile extends Component {
     getPosts = async () => {
         try {
             const response = await __GetPostsByUserId(this.props.currentUser._id)
-            console.log(this.props.currentUser._id)
             this.setState({posts: response.posts})
-            console.log(this.state)
         } catch (err) {
             throw err
         }

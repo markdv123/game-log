@@ -11,3 +11,9 @@
 .viewPost {
     text-align: center;
 }
+
+.comments {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

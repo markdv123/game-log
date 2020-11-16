@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { __CreateComment, __GetCommentsByPost } from '../services/CommentServices'
 import { __GetPost, __DeletePost } from '../services/PostServices'
 import Comment from '../components/Comment'
+import { withRouter } from 'react-router-dom'
 
-export default class ViewPost extends Component {
+class ViewPost extends Component {
   constructor(props) {
     super(props)
     console.log('props', props)
@@ -94,3 +95,5 @@ export default class ViewPost extends Component {
     )
   }
 }
+
+export default withRouter(ViewPost)
