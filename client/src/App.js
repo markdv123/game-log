@@ -148,7 +148,7 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   authenticated={this.state.authenticated}
                 >
-                  <ViewPost {...props} />
+                  <ViewPost {...props} currentUser={this.state.currentUser}/>
                 </Layout>
               )}
             />

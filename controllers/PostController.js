@@ -28,6 +28,20 @@ const GetPostsByUserId = async (req, res) => {
   }
 }
 
+const GetPostsByUsername = async (req, res) => {
+  try{
+    const { page, limit } = req.query
+    const offset = page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
+    const posts = await GamePost.find({username: req.params.username})
+      .limit(parseInt(limit))
+      .skip(offset)
+      .sort({ popularity_rating: 'desc' })
+    res.send({ results: posts.length, posts })
+  }catch(err){
+    throw err
+  }
+}
+
 const GetPostsByGameId = async (req, res) => {
   try{
     const { page, limit } = req.query
@@ -103,6 +117,7 @@ const UpdatePost = async (req, res, err) => {
 module.exports = {
   GetPosts,
   GetPostsByUserId,
+  GetPostsByUsername,
   GetPostsByGameId,
   GetPostById,
   CreatePost,

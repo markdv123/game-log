@@ -1,7 +1,7 @@
 //needs to display user info and posts by this user
 
 import React, { Component } from 'react'
-import { __GetPostsByUsername } from '../services/PostServices'
+import { __GetPostsByUserId } from '../services/PostServices'
 import Post from '../components/Post'
 import { withRouter } from 'react-router-dom'
 
@@ -19,7 +19,8 @@ class Profile extends Component {
 
     getPosts = async () => {
         try {
-            const response = await __GetPostsByUsername(this.props.currentUser._id)
+            const response = await __GetPostsByUserId(this.props.currentUser._id)
+            console.log(this.props.currentUser._id)
             this.setState({posts: response.posts})
             console.log(this.state)
         } catch (err) {

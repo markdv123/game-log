@@ -3,6 +3,7 @@ const PostController = require('../controllers/PostController')
 
 Router.get('/', PostController.GetPosts)
 Router.get('/by/:user_id', PostController.GetPostsByUserId)
+Router.get('/from/:username', PostController.GetPostsByUsername)
 Router.get('/about/:game_id', PostController.GetPostsByGameId)
 Router.get('/:post_id', PostController.GetPostById)
 Router.post('/:username', PostController.CreatePost)
