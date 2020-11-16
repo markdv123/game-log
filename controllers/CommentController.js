@@ -1,8 +1,18 @@
 const { GamePost, Comment } = require('../db/schema')
 
+const GetCommentsByPost = async (req, res) => {
+  try {
+    const comments = await Comment.find({post_id: req.params.post_id})
+    console.log(3)
+    res.send(comments)
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateComment = async (req, res) => {
   try{
-    const comment = new Comment({ ...req.body, user_id: req.params.user_id })
+    const comment = new Comment({ ...req.body, user_id: req.params.user_id, post_id: req.params.post_id, username: req.params.username })
     comment.save()
     await GamePost.update(
       { _id: req.params.post_id },
@@ -51,5 +61,6 @@ const UpdateComment = async (req, res) => {
 module.exports = {
   CreateComment,
   RemoveComment,
-  UpdateComment
+  UpdateComment,
+  GetCommentsByPost
 }
