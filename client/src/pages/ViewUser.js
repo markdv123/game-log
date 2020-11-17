@@ -26,7 +26,9 @@ class ViewUser extends Component {
 
    render() {
        return (
-       <div>
+       <div className="viewUser">
+           <h1>{this.props.match.params.username}</h1>
+           <h4>Posts:</h4>
            <section className="user-posts">
                     {this.state.posts.map((post) => (
                         <Post

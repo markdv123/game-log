@@ -20,7 +20,7 @@ class Profile extends Component {
     getPosts = async () => {
         try {
             const response = await __GetPostsByUserId(this.props.currentUser._id)
-            this.setState({posts: response.posts})
+            this.setState({ posts: response.posts })
         } catch (err) {
             throw err
         }
@@ -28,11 +28,14 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Profile Page</h1>
+            <div className="profile">
+                <h1>My Profile</h1>
+                <h4>Username: {this.props.currentUser.username}</h4>
+                <h4>My Posts:</h4>
                 <section className="profile-posts">
                     {this.state.posts.map((post) => (
                         <Post
+                            className="eachPost"
                             onClick={() =>
                                 this.props.history.push(`/posts/${post._id}`)
                             }
@@ -41,7 +44,7 @@ class Profile extends Component {
                             rating={post.rating}
                             image={post.image_url}
                             username={post.username}
-                        />
+                        />    
                     ))}
                 </section>
             </div>

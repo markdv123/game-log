@@ -10,6 +10,7 @@ export default ({ children, authenticated, currentUser }) => {
         <Nav 
         authenticated={authenticated}
         currentUser={currentUser}/>
+      </section>
         <main className="row container3">
           <div className="col s6 get-started">
             <GetStarted />
@@ -19,7 +20,6 @@ export default ({ children, authenticated, currentUser }) => {
           </div>
         </main>
         <Footer />
-      </section>
     </div>
   )
 }

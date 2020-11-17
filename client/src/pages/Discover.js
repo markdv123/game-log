@@ -16,14 +16,19 @@ export default class Discover extends Component {
   }
 
   getGames = async () => {
-    const res = await Axios.get(`https://api.rawg.io/api/games?dates=2020-01-01,2020-10-31&ordering=-added`)
+    const res = await Axios.get(`https://api.rawg.io/api/games`)
     this.setState({games: res.data.results})
   }
 
   render() {
     return (
       <div>
+        <div className="discover">
+          <h4>Popular Games:</h4>
+        </div>
+        <div className="discover-games">
         {this.state.games.map((game) => (<GameCard onClick={()=> this.props.history.push(`/GamePage/${game.id}`)} key={game.id} image={game.background_image} name={game.name} rating={game.rating}/>))}
+        </div>
         
       </div>
     )
