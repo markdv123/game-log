@@ -8,7 +8,7 @@ const Search = (props) => (
       value={props.value} 
       placeholder="Search Games" 
       onChange={props.onChange}></input>
-    <button className="waves-effect waves-light btn" type="submit"><i className="material-icons left">search</i>Search</button>
+    <button className="waves-effect waves-light btn" style={{marginLeft: '10px'}} type="submit"><i className="material-icons left">search</i>Search</button>
   </form>
 )
 

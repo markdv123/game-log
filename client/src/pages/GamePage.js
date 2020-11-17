@@ -38,9 +38,10 @@ class GamePage extends Component {
         const {gameDetails} = this.state
         return (
             <div>
-                <h1>{gameDetails.name}</h1>
+                <h1 style={{marginLeft: '10px'}}>{gameDetails.name}</h1>
                 <a 
-                    class="waves-effect waves-light btn" 
+                    class="waves-effect waves-light btn"
+                    style={{marginLeft: '20px'}} 
                     onClick={() => {
                         this.props.history.push(`/upload/${gameDetails.id}`)
                     }}><i class="material-icons left">add</i>Create Post</a>

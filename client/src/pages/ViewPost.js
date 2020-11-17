@@ -5,6 +5,7 @@ import Comment from '../components/Comment'
 import { withRouter } from 'react-router-dom'
 import TextInput from '../components/TextInput'
 import ImgUploader from '../components/ImgUploader'
+import MyCarousel from '../components/Carousel'
 
 class ViewPost extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class ViewPost extends Component {
       <div className="viewPost">
         <h3>{post.title}</h3>
         <h5>Rating: {post.rating}/10</h5>
+        {post._id ? (<MyCarousel post_id={this.state.post._id} img_url={this.state.post.image_url}/>) : null}
         <p>{post.description}</p>
         {this.showButton(post)}
         <div className="row input-field">

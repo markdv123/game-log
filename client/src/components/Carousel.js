@@ -2,20 +2,44 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import ApiClient from '../services/ApiClient';
+import { __GetImages } from '../services/ImageServices';
  
 export default class MyCarousel extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            post_id: this.props.post_id,
+            game_image: this.props.img_url,
+            imgs: []
+        }
+    }
+
+    componentDidMount(){
+        this.getImages()
+    }
+
+    getImages = async () => {
+        const images = await __GetImages(this.state.post_id)
+        this.setState({imgs: images})
+    }
+
     render() {
+        const {imgs} = this.state
+        console.log('game image', this.state.game_image)
+        console.log('props', this.props)
         return (
             <Carousel>
                 <div>
-                    <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/portals_3/SI_Hub_Zelda_Portal.jpg" />
+                    <img src={this.state.game_image} />
                 </div>
-                <div>
-                    <img src="https://media.comicbook.com/2020/05/the-legend-of-zelda-breath-of-the-wild-2-1219330-1280x0.jpeg" />
-                </div>
-                <div>
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/81MSTWBZr6L.jpg" />
-                </div>
+                {imgs.map((image) => {
+                    console.log(image)
+                    return(
+                    <div>
+                        <img src={image} />
+                    </div>
+                )})}
             </Carousel>
         );
     }

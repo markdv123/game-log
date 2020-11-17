@@ -2,7 +2,7 @@ import React from 'react'
 
 const GameCard = (props) => (
   <div className="row">
-    <div className="col s12 m7">
+    <div className="col s12">
       <div className="card">
         <div className="card-image">
           <img alt="game-image" src={props.image} />

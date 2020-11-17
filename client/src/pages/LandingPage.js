@@ -11,11 +11,11 @@ export default ({ children, authenticated, currentUser }) => {
         authenticated={authenticated}
         currentUser={currentUser}/>
       </section>
-        <main className="row container3">
-          <div className="col s6 get-started">
+        <main className="container3">
+          <div className="get-started">
             <GetStarted />
           </div>
-          <div className="col s6 lp-right">
+          <div className="lp-right">
             {children}
           </div>
         </main>
