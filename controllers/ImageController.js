@@ -2,7 +2,7 @@ const Image = require('../db/schema')
 
 const UploadImage = async (req, res) => {
     try {
-      const newImage = new Image({url: req.body.url, post_id: req.params.post_if})
+      const newImage = new Image({url: req.body.url, post_id: req.params.post_id})
       newImage.save()
       res.send({msg: 'Upload Success'})
     } 
