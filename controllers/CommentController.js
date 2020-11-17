@@ -12,6 +12,7 @@ const GetCommentsByPost = async (req, res) => {
 const CreateComment = async (req, res) => {
   try{
     const comment = new Comment({ ...req.body, user_id: req.params.user_id, post_id: req.params.post_id, username: req.params.username })
+    console.log('req body', req.body)
     comment.save()
     await GamePost.update(
       { _id: req.params.post_id },

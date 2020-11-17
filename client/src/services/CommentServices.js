@@ -1,8 +1,10 @@
 import ApiClient from './ApiClient'
 
-export const __CreateComment = async (formData, post_id, username) => {
+export const __CreateComment = async (comment, post_id, username) => {
     try {
-        const res = await ApiClient.post(`/comments/${post_id}/user/${username}`, formData)
+        console.log("who's ur comment", comment)
+        const res = await ApiClient.post(`/comments/${post_id}/user/${username}`, comment)
+        console.log("who's ur data", res.data)
         return res.data
     } catch (error) {
         throw error

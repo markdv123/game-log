@@ -12,7 +12,7 @@ module.exports = new Schema(
     },
     username: {
       type: String,
-      required: true
+      ref: 'users'
     },
     user_id: {
       type: Schema.Types.ObjectId,

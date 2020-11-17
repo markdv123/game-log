@@ -13,7 +13,7 @@ class ViewPost extends Component {
       post: {},
       currentUser: this.props.currentUser,
       comments: [],
-      comment: ''
+      com: ''
     }
   }
 
@@ -48,14 +48,18 @@ class ViewPost extends Component {
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value })
+    this.setState({ com: target.value })
   }
 
   addComment = async () => {
+    const comment = { comment: this.state.com }
+    const postId = this.state.post._id
+    const username = this.state.currentUser.username
     try {
-      await __CreateComment(this.state.comment, this.state.post._id, this.state.currentUser)
+      await __CreateComment(comment, postId, username)
+      console.log('check', comment, postId, username)
     } catch (error) {
-      throw error
+      console.log(error)
     }
   }
 
@@ -75,7 +79,7 @@ class ViewPost extends Component {
   // }
 
   render() {
-    const { post, comments, comment } = this.state
+    const { post, comments, com } = this.state
     console.log('post', this.state.post)
     return (
       <div className="viewPost">
@@ -89,15 +93,15 @@ class ViewPost extends Component {
             fieldType="textfield"
             placeholder="Comment"
             name="comment"
-            value={comment}
+            value={com}
             onChange={this.handleChange}
           />
           <a className="waves-effect waves-light btn" onClick={() => { this.addComment() }}><i class="material-icons left">add</i>Comment</a>
         </div>
         <h5>Comments:</h5>
         <ul>
-          {comments.map((comment) => (
-            <li><Comment key={comment._id} comment={comment.comment} user={comment.username} /></li>
+          {comments.map((comm) => (
+            <li><Comment key={comm._id} comment={comm.comment} user={comm.username} /></li>
           ))}
         </ul>
       </div>
