@@ -3,7 +3,6 @@ const { GamePost, Comment } = require('../db/schema')
 const GetCommentsByPost = async (req, res) => {
   try {
     const comments = await Comment.find({post_id: req.params.post_id})
-    console.log(3)
     res.send(comments)
   } catch (error) {
     throw error

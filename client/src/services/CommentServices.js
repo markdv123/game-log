@@ -11,7 +11,6 @@ export const __CreateComment = async (formData, post_id, username) => {
 
 export const __GetCommentsByPost = async (post_id) => {
     try {
-        console.log("2")
         const res = await ApiClient.get(`/comments/${post_id}`)
         return res.data
     } catch (error) {

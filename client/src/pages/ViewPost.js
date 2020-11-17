@@ -3,6 +3,7 @@ import { __CreateComment, __GetCommentsByPost } from '../services/CommentService
 import { __GetPost, __DeletePost } from '../services/PostServices'
 import Comment from '../components/Comment'
 import { withRouter } from 'react-router-dom'
+import TextInput from '../components/TextInput'
 
 class ViewPost extends Component {
   constructor(props) {
@@ -34,9 +35,7 @@ class ViewPost extends Component {
 
   getComments = async () => {
     try {
-      console.log('1')
       const theComments = await __GetCommentsByPost(this.props.match.params.post_id)
-      console.log(4)
       this.setState({ comments: theComments })
     } catch (error) {
       throw error
@@ -48,8 +47,8 @@ class ViewPost extends Component {
     this.props.history.push('/profile')
   }
 
-  handleChange = (e) => {
-    this.setState({ comment: e.value })
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value })
   }
 
   addComment = async () => {
@@ -76,7 +75,7 @@ class ViewPost extends Component {
   // }
 
   render() {
-    const { post, comments } = this.state
+    const { post, comments, comment } = this.state
     console.log('post', this.state.post)
     return (
       <div className="viewPost">
@@ -85,10 +84,20 @@ class ViewPost extends Component {
         <p>{post.description}</p>
         <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.props.history.push(`/edit/${this.props.match.params.post_id}`) }}><i class="material-icons left">edit</i>Edit Post</a>
         <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.deletePost() }}><i class="material-icons left">delete</i>Delete Post</a>
+        <div className="row input-field">
+          <TextInput
+            fieldType="textfield"
+            placeholder="Comment"
+            name="comment"
+            value={comment}
+            onChange={this.handleChange}
+          />
+          <a className="waves-effect waves-light btn" onClick={() => { this.addComment() }}><i class="material-icons left">add</i>Comment</a>
+        </div>
         <h5>Comments:</h5>
         <ul>
           {comments.map((comment) => (
-            <li><Comment key={comment._id} comment={comment.comment} user={comment.username}/></li>
+            <li><Comment key={comment._id} comment={comment.comment} user={comment.username} /></li>
           ))}
         </ul>
       </div>
