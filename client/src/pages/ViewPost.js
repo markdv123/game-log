@@ -11,7 +11,6 @@ class ViewPost extends Component {
     this.state = {
       post: {},
       currentUser: this.props.currentUser,
-      // userId: this.props.currentUser._id,
       comments: [],
       com: ''
     }
@@ -68,12 +67,6 @@ class ViewPost extends Component {
           <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.deletePost() }}><i class="material-icons left">delete</i>Delete Post</a>
         </div>
       ) : null
-      // if(this.state.userId === post.user_id){
-      //   console.log('1', post.user_id)
-      //   console.log('2', this.state.userId)
-        
-      //   // return (<a class="waves-effect waves-light btn" onClick={() => {this.props.history.push(`/edit/${this.props.match.params.post_id}`)}}><i class="material-icons left">edit</i>Edit Post</a>)
-      // }
     }else{
       return null
     }
