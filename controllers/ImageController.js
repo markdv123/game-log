@@ -27,7 +27,7 @@ const GetImagesByPostId = async (req, res) => {
 
 const DeleteImages = async (req, res) => {
     try {
-        await Image.deleteMany()
+        await Image.deleteMany({post_id: req.params.post_id})
         res.send({msg: 'Deleted all images'})
     }
     catch(err) { throw err }
