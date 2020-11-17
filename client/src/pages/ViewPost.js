@@ -66,6 +66,7 @@ class ViewPost extends Component {
         <div>
           <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.props.history.push(`/edit/${this.props.match.params.post_id}`) }}><i class="material-icons left">edit</i>Edit Post</a>
           <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.deletePost() }}><i class="material-icons left">delete</i>Delete Post</a>
+          <ImgUploader post_id={this.state.post._id}/>
         </div>
       ) : null
     }else{

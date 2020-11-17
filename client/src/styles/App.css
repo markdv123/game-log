@@ -71,3 +71,12 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.thumbs-wrapper {
+    display: none;
+}
+
+.carousel-root img {
+    height: 400px;
+    object-fit: cover;
+}
