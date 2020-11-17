@@ -4,6 +4,7 @@ import { __GetPost, __DeletePost } from '../services/PostServices'
 import Comment from '../components/Comment'
 import { withRouter } from 'react-router-dom'
 import TextInput from '../components/TextInput'
+import ImgUploader from '../components/ImgUploader'
 
 class ViewPost extends Component {
   constructor(props) {

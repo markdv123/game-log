@@ -1,4 +1,4 @@
-import {__UploadFile} from '../utils/CloudService'
+import {__UploadImage} from '../services/ImageServices'
 const CLOUD_NAME = process.env.REACT_APP_CLOUD_NAME
 const UPLOAD_PRESET = process.env.REACT_APP_UPLOAD_PRESET
 
@@ -20,7 +20,7 @@ const Uploader = props => {
         const url = await resultEvent.info.secure_url
         const post_id = props.post_id
         if (url) {
-          await __UploadFile(url, post_id)
+          await __UploadImage(url, post_id)
           await updateRender()
         }
       }catch(err){throw err}
