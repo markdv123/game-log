@@ -8,10 +8,10 @@ import TextInput from '../components/TextInput'
 class ViewPost extends Component {
   constructor(props) {
     super(props)
-    console.log('props', props)
     this.state = {
       post: {},
       currentUser: this.props.currentUser,
+      // userId: this.props.currentUser._id,
       comments: [],
       com: ''
     }
@@ -20,13 +20,11 @@ class ViewPost extends Component {
   componentDidMount() {
     this.getPost()
     this.getComments()
-    console.log('comments', this.state.comments)
   }
 
   getPost = async () => {
     try {
       const thePost = await __GetPost(this.props.match.params.post_id)
-      // console.log(thePost.title)
       this.setState({ post: thePost })
     } catch (error) {
       console.log(error)
@@ -57,37 +55,38 @@ class ViewPost extends Component {
     const username = this.state.currentUser.username
     try {
       await __CreateComment(comment, postId, username)
-      console.log('check', comment, postId, username)
     } catch (error) {
       console.log(error)
     }
   }
 
-  // showButton(post) {
-  //   console.log('post', post)
-  //   if(post){
-  //     if(this.state.currentUser._id === post.user_id){
-  //       console.log('did it')
-  //       console.log(post.user_id)
-  //       //cant find post.user_id probably???
-  //       return ('hello')
-  //       // return (<a class="waves-effect waves-light btn" onClick={() => {this.props.history.push(`/edit/${this.props.match.params.post_id}`)}}><i class="material-icons left">edit</i>Edit Post</a>)
-  //     }
-  //   }else{
-  //     return (<h1>hello</h1>)
-  //   }
-  // }
+  showButton(post) {
+    if(post.user_id && this.state.currentUser){
+      return this.state.currentUser._id === post.user_id._id ? (
+        <div>
+          <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.props.history.push(`/edit/${this.props.match.params.post_id}`) }}><i class="material-icons left">edit</i>Edit Post</a>
+          <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.deletePost() }}><i class="material-icons left">delete</i>Delete Post</a>
+        </div>
+      ) : null
+      // if(this.state.userId === post.user_id){
+      //   console.log('1', post.user_id)
+      //   console.log('2', this.state.userId)
+        
+      //   // return (<a class="waves-effect waves-light btn" onClick={() => {this.props.history.push(`/edit/${this.props.match.params.post_id}`)}}><i class="material-icons left">edit</i>Edit Post</a>)
+      // }
+    }else{
+      return null
+    }
+  }
 
   render() {
     const { post, comments, com } = this.state
-    console.log('post', this.state.post)
     return (
       <div className="viewPost">
         <h3>{post.title}</h3>
         <h5>Rating: {post.rating}/10</h5>
         <p>{post.description}</p>
-        <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.props.history.push(`/edit/${this.props.match.params.post_id}`) }}><i class="material-icons left">edit</i>Edit Post</a>
-        <a className="waves-effect waves-light btn" style={{ 'marginLeft': '10px' }} onClick={() => { this.deletePost() }}><i class="material-icons left">delete</i>Delete Post</a>
+        {this.showButton(post)}
         <div className="row input-field">
           <TextInput
             fieldType="textfield"

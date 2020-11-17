@@ -14,6 +14,7 @@ const Post = (props) => {
         </div>
         <div className="card-action">
           <a onClick={props.onClick}>View Full Post</a>
+          <a href={`/users/${props.username}`}>View User</a>
         </div>
       </div>
     </div>
