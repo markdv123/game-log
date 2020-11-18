@@ -9,7 +9,7 @@ export default ({ authenticated, currentUser, className }) => {
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/discover">Discover</Link></li>
-        <li><Link to="/admin">Admin</Link></li>
+        {/* <li><Link to="/admin">Admin</Link></li> */}
         <li><Link to="/" onClick={() => localStorage.clear()}>Signout</Link></li>
       </ul>
     </div>
@@ -20,7 +20,7 @@ export default ({ authenticated, currentUser, className }) => {
       <Link to="/" className="brand-logo" style={{"marginLeft": "10px"}}><i className="material-icons">videogame_asset</i>GameLog</Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/discover">Discover</Link></li>
-        <li><Link to="/admin">Admin</Link></li>
+        {/* <li><Link to="/admin">Admin</Link></li> */}
         <li><Link to="/register">SignUp</Link></li>
         <li><Link to="/login">SignIn</Link></li>
       </ul>
