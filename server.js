@@ -1,5 +1,6 @@
-const AppRouter = require('./routes/AppRouter')
 const express = require('express')
+const path = require('path')
+const AppRouter = require('./routes/AppRouter')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -10,10 +11,15 @@ const PORT = process.env.PORT || 3001
 const app = express()
 
 app.use(logger('dev'))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+)
 
 app.disable('X-Powered-By')
 app.get('/', (req, res) => res.send({ msg: 'Server Working' }))
