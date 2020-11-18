@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const MONGO_URI = process.env.MONGO_URI
 
-const connection = mongoose.connect('mongodb://localhost:27017/game-log', {
+const connection = mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useFindAndModify: true,
   useUnifiedTopology: true,

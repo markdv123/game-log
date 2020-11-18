@@ -7,8 +7,8 @@ class Footer extends Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text">General Assembly Project 2</h5>
-              <p className="grey-text text-lighten-4">This site was made by Mark DeVito for the second project of General Assembly's Software Engineering Immersive Bootcamp.</p>
+              <h5 className="white-text">GameLog</h5>
+              <p className="grey-text text-lighten-4">Let everyone know about your favorite games by logging them in your profile! This site makes it easy to share recommendations with all your friends!</p>
             </div>
             <div className="col l4 offset-l2 s12">
               <h5 className="white-text">Links</h5>
