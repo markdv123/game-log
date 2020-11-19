@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const AppRouter = require('./routes/AppRouter')
+const AppRouter = require('./Routes/AppRouter')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
