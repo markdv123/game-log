@@ -18,6 +18,10 @@ module.exports = new Schema(
       unique: true,
       index: true
     },
+    description: {
+      type: String,
+      default: 'Thank you for visiting my page!'
+    },
     password_digest: {
       type: String,
       required: true

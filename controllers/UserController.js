@@ -32,6 +32,20 @@ const CreateUser = async (req, res) => {
   }
 }
 
+const UpdateDesc = async (req, res, err) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      {username: req.params.username},
+      {description: req.body},
+      { new: true, useFindAndModify: false },
+      (err, (d) => (err ? err : res.send(d)))
+    )
+    res.send(user)
+  }catch(err){
+    throw err
+  }
+}
+
 const SignInUser = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email })
@@ -67,5 +81,6 @@ module.exports = {
   GetProfile,
   CreateUser,
   SignInUser,
+  UpdateDesc,
   RefreshSession
 }

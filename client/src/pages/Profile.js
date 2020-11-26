@@ -31,6 +31,8 @@ class Profile extends Component {
             <div className="profile">
                 <h1>My Profile</h1>
                 <h4>Username: {this.props.currentUser.username}</h4>
+                <p>{this.props.currentUser.description}</p>
+                
                 <h4>My Posts:</h4>
                 <section className="profile-posts">
                     {this.state.posts.map((post) => (
@@ -44,7 +46,7 @@ class Profile extends Component {
                             rating={post.rating}
                             image={post.image_url}
                             username={post.username}
-                        />    
+                        />
                     ))}
                 </section>
             </div>

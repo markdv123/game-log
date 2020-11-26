@@ -9,6 +9,7 @@ const {
 Router.get('/:username', UserController.GetProfile)
 Router.post('/register', UserController.CreateUser)
 Router.post('/login', UserController.SignInUser, createToken)
+Router.put('/:username/description', UserController.UpdateDesc)
 Router.get(
     '/refresh/session',
     getToken,
