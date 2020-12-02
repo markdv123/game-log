@@ -1,4 +1,4 @@
-# Untitled Project 2
+# GameLog
 
 ## November 9, 2020
 
@@ -22,20 +22,13 @@ This app serves as a social media site for gamers to record and share their expe
 * MongoDB
 ***
 
-### ERD
-![ERD](./images/P2ERD.png)
-***
-
-### Component Hierarchy
-![Component Hierarchy](./images/P2ComponentHierarchy.png)
-***
-
 ### :memo: Planned Improvements :memo:
 
-- [ ] Carousel option for adding several images to a post
 - [ ] Ability to disable comments on your post
 - [ ] User profile customization: profile pic, background pic, description with space to link discord/twitch/twitter
 ***
 
 ### :alien: Credits :alien:
-- There will be credits here once i know everything i need to credit :see_no_evil: :hear_no_evil: :speak_no_evil:
+- Materialize
+- Cloudinary
+- RAWG API
